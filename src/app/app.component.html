@@ -1,0 +1,21 @@
+<div class="slider-container">
+  <div class="carousel">
+    <div class="items" [ngStyle]="getTransformStyles()">
+      <div *ngFor="let page of arrPages" class="container-items">
+        <div class="list-item" *ngFor="let sortedItem of sortedItems[page-1]">
+          <img [src]="sortedItem.src" alt="">
+        </div>
+      </div>
+    </div>
+    <div class="controls" *ngIf="arrPages.length > 1">
+      <button (click)="move(-1)">
+        left
+      </button>
+      <span *ngFor="let page of arrPages"
+        [ngStyle]="getSpanStyles(page)"></span>
+      <button (click)="move(1)">
+        right
+      </button>
+    </div>
+  </div>
+</div>
